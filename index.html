@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OSEB Password Generator</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -16,6 +21,10 @@
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
   }
 
   nav h1 {
@@ -75,24 +84,97 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    position: fixed;
+
   }
+    /* Custom CSS for navbar color */
+    .navbar-custom {
+            background-color: #ff2f00;
+            /* Change this color to your desired color */
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav .nav-link {
+            color: #ffffff;
+            /* Change this color to your desired color */
+        }
+
+        .navbar-brand img {
+            max-height: 30px;
+            /* Adjust the max-height as needed */
+        }
+        /* Heart animation */
+        @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    .heart {
+        display: inline-block;
+        animation: heartbeat 1s infinite;
+        color: red; /* Add color property for red color */
+
+    }
 </style>
 </head>
 <body>
 
-<nav>
-  <h3>Password Generator 🔐</h3>
-</nav>
-
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="OSEB_CHARGES-1_page-0001-removebg-preview.png" alt="Logo">
+                <!-- Replace 'your-logo.png' with the path to your logo -->
+                OSEB
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#exams">Exams <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schemes_of_work">Schemes of Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#textbooks">Textbooks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lesson_notes">Lesson Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#holiday_packages">Holiday Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#learners_workbooks"> Workbooks</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<br><br><br>
 <div id="container">
+    <h5>Password Generator 🛡️</h5>
   <input type="text" id="textInput" class="text-input" placeholder="Enter file name here...">
-  <button onclick="convertTextToHex()" class="blue-button">Generate Password 🛡️</button>
+  <button onclick="convertTextToHex()" class="blue-button">Generate Password 🔐</button>
   <div id="hexOutput"></div>
 </div>
 
-<footer>
-  &copy; 2024 Text to Hex Converter
-</footer>
+<center>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; 2024 OSEB</p>
+            <p>Designed with <span class="heart">&hearts;</span> by <a href="https://fresh-teacher.github.io"> Fresh Teacher</a></p>
+
+        </div>
+    </footer>
+    
+</center>
 
 <script>
 function sha256(ascii) {
